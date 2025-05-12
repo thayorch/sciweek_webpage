@@ -6,7 +6,6 @@
     :overlay="false"
     max-width="500px"
     transition="dialog-transition"
-    @click="alertCorrect = !alertCorrect"
     class="animate__animated animate__fadeIn animate__shakeY mx-auto"
   >
     <Correct :quizIndex="quizIndex" />
@@ -19,7 +18,6 @@
     :overlay="false"
     max-width="500px"
     transition="dialog-transition"
-    @click="alertIncorrect = !alertIncorrect"
      class="animate__animated animate__fadeIn animate__shakeY mx-auto"
   >
     <Incorrect :quizIndex="quizIndex" />
