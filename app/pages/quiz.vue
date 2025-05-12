@@ -23,8 +23,8 @@
     <Incorrect :quizIndex="quizIndex" />
   </v-dialog>
 
-  <v-btn color="success" @click="alertCorrect = !alertCorrect">check</v-btn>
-  <v-btn color="error" @click="alertIncorrect = !alertIncorrect">check</v-btn>
+  <!-- <v-btn color="success" @click="alertCorrect = !alertCorrect">check</v-btn> -->
+  <!-- <v-btn color="error" @click="alertIncorrect = !alertIncorrect">check</v-btn> -->
 
   <v-container class="animate__animated animate__fadeIn animate__shakeY">
     <h1 class="text-center text-white">Quiz {{ quizIndex + 1 }} / 5</h1>
