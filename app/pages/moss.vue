@@ -1,4 +1,5 @@
 <template>
+  <audio ref="audioRef" :src="audioSources[quizIndex]" preload="auto"></audio>
   <v-dialog
     v-model="alertCorrect"
     scrollable
@@ -8,7 +9,7 @@
     transition="dialog-transition"
     class="animate__animated animate__fadeIn animate__shakeY mx-auto"
   >
-    <Correct :quizIndex="quizIndex" />
+    <Correct :quizIndex="quizIndex" pages="moss" />
   </v-dialog>
 
   <v-dialog
@@ -18,30 +19,49 @@
     :overlay="false"
     max-width="500px"
     transition="dialog-transition"
-     class="animate__animated animate__fadeIn animate__shakeY mx-auto"
+    class="animate__animated animate__fadeIn animate__shakeY mx-auto"
   >
-    <Incorrect :quizIndex="quizIndex" />
+    <Incorrect :quizIndex="quizIndex" pages="moss" />
   </v-dialog>
-
-  <!-- <v-btn color="success" @click="alertCorrect = !alertCorrect">check</v-btn> -->
-  <!-- <v-btn color="error" @click="alertIncorrect = !alertIncorrect">check</v-btn> -->
 
   <v-container class="animate__animated animate__fadeIn animate__shakeY">
     <h1 class="text-center text-white">Quiz {{ quizIndex + 1 }} / 5</h1>
 
     <div class="mt-8 gamepanel mx-auto text-center">
-      <h1 class="text-center text-white">Guess the shadow</h1>
-      <v-img
+      <h1 class="text-center text-white">Guess the moss code</h1>
+      <!-- <v-img
         :src="imgSource[quizIndex]"
         class="ma-2"
         height="250"
         alt="images"
-      />
+      /> -->
+
+      <!-- <v-icon
+        class="ma-2 text-white"
+        size="x-large"
+        @click="playSound"
+        style="cursor: pointer"
+      >
+        mdi-volume-high
+      </v-icon> -->
+
+      <v-btn
+        @click="playSound"
+        color="white"
+        icon="mdi-volume-high"
+        height="100"
+        width="100"
+        class="mt-5"
+      >
+        <v-icon class="ma-2" size="x-large" style="cursor: pointer">
+          mdi-volume-high
+        </v-icon>
+      </v-btn>
 
       <div class="option ma-8">
         <v-row>
           <v-col
-            v-for="(data, index) in optionData"
+            v-for="(data, index) in optionData[quizIndex]"
             :key="index"
             cols="6"
             class="pa-2"
@@ -51,7 +71,7 @@
               width="100%"
               height="55"
               :title="data.title"
-              @click="checkAnswer(data.id)"
+              @click="checkAnswer(data.title)"
             ></v-card>
           </v-col>
         </v-row>
@@ -61,28 +81,53 @@
 </template>
 
 <script setup lang="ts">
+const spk = "quiz2/spk.jpg";
 const router = useRouter();
 const optionData = ref([
-  { title: "Answer 1", id: 1 },
-  { title: "Answer 2", id: 2 },
-  { title: "Answer 3", id: 3 },
-  { title: "Answer 4", id: 4 },
-]);
-
-const imgSource = ref<string[]>([
-  "quiz1/1.jpg",
-  "quiz1/2.jpg",
-  "quiz1/3.jpg",
-  "quiz1/4.jpg",
-  "quiz1/5.jpg",
+  [
+    { title: ". _ _ . ." },
+    { title: "_ _ . . ." },
+    { title: "_ . _ . _" },
+    { title: "_ . _ . ." },
+  ],
+  [
+    { title: ". _ _ . ." },
+    { title: "_ _ . . ." },
+    { title: "_ . _ . _" },
+    { title: "_ . _ . ." },
+  ],
+  [
+    { title: ". _ _ . ." },
+    { title: "_ _ . . ." },
+    { title: "_ . _ . _" },
+    { title: "_ . _ . ." },
+  ],
+  [
+    { title: ". _ _ . ." },
+    { title: "_________" },
+    { title: ". . . . ." },
+    { title: "_ . _ . ." },
+  ],
+  [
+    { title: ". _ _ . ." },
+    { title: "_________" },
+    { title: ". . . . ." },
+    { title: "_ . _ . ." },
+  ],
 ]);
 
 const alertCorrect = ref(false);
 const alertIncorrect = ref(false);
 const quizIndex = ref(0);
-const answerList = [1, 4, 2, 4, 3];
+const answerList = [
+  ". _ _ . .",
+  "_ . _ . .",
+  "_ _ . . .",
+  ". . . . .",
+  "_________",
+];
 
-const checkAnswer = (answer: number) => {
+const checkAnswer = (answer: string) => {
   if (answer === answerList[quizIndex.value]) {
     alertCorrect.value = true;
     setTimeout(() => {
@@ -105,6 +150,23 @@ const updateIndex = () => {
     }, 1500);
   } else {
     quizIndex.value++;
+  }
+};
+
+const audioRef = ref<HTMLAudioElement | null>(null);
+
+const audioSources = [
+  "/sounds/moss1.wav",
+  "/sounds/moss2.wav",
+  "/sounds/moss3.wav",
+  "/sounds/moss4.wav",
+  "/sounds/moss5.wav",
+];
+
+const playSound = () => {
+  if (audioRef.value) {
+    audioRef.value.currentTime = 0;
+    audioRef.value.play();
   }
 };
 </script>

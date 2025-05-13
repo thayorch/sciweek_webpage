@@ -1,20 +1,22 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { defineProps } from 'vue'
-
 const props = defineProps<{
   quizIndex: number
+  pages: string
 }>()
 
-const answerSource = ref<string[]>([
-  "quiz1/ans/1.jpg",
-  "quiz1/ans/2.jpg",
-  "quiz1/ans/3.jpg",
-  "quiz1/ans/4.jpg",
-  "quiz1/ans/5.jpg",
-])
+const answerSource = [
+  "answer/1.jpg",
+  "answer/2.jpg",
+  "answer/3.jpg",
+  "answer/4.jpg",
+  "answer/5.jpg",
+]
 
-const answerImage = computed(() => answerSource.value[props.quizIndex])
+const answerImage = computed(() =>
+  props.pages === "quiz"
+    ? answerSource[props.quizIndex]
+    : "answer/roll-safe-meme-1.jpg"
+)
 </script>
 
 <template>

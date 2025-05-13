@@ -8,7 +8,7 @@
     transition="dialog-transition"
     class="animate__animated animate__fadeIn animate__shakeY mx-auto"
   >
-    <Correct :quizIndex="quizIndex" />
+    <Correct :quizIndex="quizIndex" pages="quiz" />
   </v-dialog>
 
   <v-dialog
@@ -20,7 +20,7 @@
     transition="dialog-transition"
     class="animate__animated animate__fadeIn animate__shakeY mx-auto"
   >
-    <Incorrect :quizIndex="quizIndex" />
+    <Incorrect :quizIndex="quizIndex" pages="quiz"/>
   </v-dialog>
 
   <!-- <v-btn color="success" @click="alertCorrect = !alertCorrect">check</v-btn> -->
