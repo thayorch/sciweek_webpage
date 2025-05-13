@@ -32,6 +32,7 @@
         <v-list-item to="/"> Dashbord </v-list-item>
         <v-list-item to="/quiz"> Quiz Game </v-list-item>
         <v-list-item to="/moss"> Moss Game </v-list-item>
+        <v-list-item to="/vial"> Vial Game </v-list-item>
       </v-list>
     </v-menu>
   </div>

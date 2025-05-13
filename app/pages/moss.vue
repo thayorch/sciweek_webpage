@@ -29,21 +29,6 @@
 
     <div class="mt-8 gamepanel mx-auto text-center">
       <h1 class="text-center text-white">Guess the moss code</h1>
-      <!-- <v-img
-        :src="imgSource[quizIndex]"
-        class="ma-2"
-        height="250"
-        alt="images"
-      /> -->
-
-      <!-- <v-icon
-        class="ma-2 text-white"
-        size="x-large"
-        @click="playSound"
-        style="cursor: pointer"
-      >
-        mdi-volume-high
-      </v-icon> -->
 
       <v-btn
         @click="playSound"
@@ -81,7 +66,6 @@
 </template>
 
 <script setup lang="ts">
-const spk = "quiz2/spk.jpg";
 const router = useRouter();
 const optionData = ref([
   [
@@ -146,7 +130,7 @@ const checkAnswer = (answer: string) => {
 const updateIndex = () => {
   if (quizIndex.value >= 4) {
     setTimeout(() => {
-      router.push("/thanks");
+      router.push("/hint2");
     }, 1500);
   } else {
     quizIndex.value++;

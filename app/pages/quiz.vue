@@ -20,7 +20,7 @@
     transition="dialog-transition"
     class="animate__animated animate__fadeIn animate__shakeY mx-auto"
   >
-    <Incorrect :quizIndex="quizIndex" pages="quiz"/>
+    <Incorrect :quizIndex="quizIndex" pages="quiz" />
   </v-dialog>
 
   <!-- <v-btn color="success" @click="alertCorrect = !alertCorrect">check</v-btn> -->
@@ -63,53 +63,50 @@
 <script setup lang="ts">
 const router = useRouter();
 const optionData = ref([
-  [ 
-  { title: "Conan"},
-  { title: "Luffy"},
-  { title: "Gojo"},
-  { title: "Goku"},
-],
   [
-  { title: "CSCMU"},
-  { title: "DSCMU"},
-  { title: "SCICMU"},
-  { title: "HUCMU"},
-],
+    { title: "โคนัน" },
+    { title: "ลูฟี่" },
+    { title: "โนบิตะ" },
+    { title: "ชินจัง" },
+  ],
   [
-  { title: "CSCMU"},
-  { title: "DSCMU"},
-  { title: "SCICMU"},
-  { title: "HUCMU"},
-],
-  [ 
-  { title: "Conan"},
-  { title: "Luffy"},
-  { title: "Gojo"},
-  { title: "Goku"},
-],
+    { title: "โดราเอม่อน" },
+    { title: "โนบิตะ" },
+    { title: "ชิซูกะ" },
+    { title: "ไจแอ้น" },
+  ],
   [
-  { title: ""},
-  { title: ""},
-  { title: ""},
-  { title: ""},
-],
-
-]
-
-);
+    { title: "หมีพู" },
+    { title: "หมีเนย" },
+    { title: "ปิกกาจู" },
+    { title: "โดราเอม่อน" },
+  ],
+  [
+    { title: "คุโรมิ" },
+    { title: "มายเมโลดี้" },
+    { title: "ชินจัง" },
+    { title: "ปิกกาจู" },
+  ],
+  [
+    { title: "แคร์แบร์" },
+    { title: "สปอนจ์บ็อบ" },
+    { title: "โดราเอม่อน" },
+    { title: "หมีเนย" },
+  ],
+]);
 
 const imgSource = ref<string[]>([
-  "quiz1/1.jpg",
-  "quiz1/2.jpg",
-  "quiz1/3.jpg",
-  "quiz1/4.jpg",
-  "quiz1/5.jpg",
+  "shadow/1.png",
+  "shadow/2.png",
+  "shadow/3.png",
+  "shadow/4.png",
+  "shadow/5.png",
 ]);
 
 const alertCorrect = ref(false);
 const alertIncorrect = ref(false);
 const quizIndex = ref(0);
-const answerList = ["Conan", "CSCMU", "DSCMU", "Luffy", ""];
+const answerList = ["ลูฟี่", "โดราเอม่อน", "ปิกกาจู", "ชินจัง", "สปอนจ์บ็อบ"];
 
 const checkAnswer = (answer: string) => {
   if (answer === answerList[quizIndex.value]) {
@@ -123,15 +120,16 @@ const checkAnswer = (answer: string) => {
       alertIncorrect.value = false;
     }, 1000);
   }
-
-  updateIndex();
+  setTimeout(() => {
+    updateIndex();
+  }, 1200);
 };
 
 const updateIndex = () => {
   if (quizIndex.value >= 4) {
     setTimeout(() => {
-      router.push("/thanks");
-    }, 1500);
+      router.push("/hint1");
+    }, 500);
   } else {
     quizIndex.value++;
   }

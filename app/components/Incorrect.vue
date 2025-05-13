@@ -5,11 +5,11 @@ const props = defineProps<{
 }>()
 
 const answerSource = [
-  "answer/1.jpg",
-  "answer/2.jpg",
-  "answer/3.jpg",
-  "answer/4.jpg",
-  "answer/5.jpg",
+  "answer/1.png",
+  "answer/2.png",
+  "answer/3.png",
+  "answer/4.png",
+  "answer/5.png",
 ]
 
 const answerImage = computed(() =>
@@ -29,6 +29,6 @@ const answerImage = computed(() =>
       rounded="lg"
       title="Incorrect"
     />
-    <v-img :src="answerImage" max-width="300" class="mx-auto" />
+    <v-img :src="answerImage" max-width="300" height="360" class="mx-auto" />
   </v-container>
 </template>

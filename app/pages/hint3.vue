@@ -6,11 +6,7 @@
     <h1 class="text-center text-white">! Thanks For Playing !</h1>
     <h2 class="text-center text-white">The Ways Hint for you</h2>
     <h1 class="text-center text-white"> 
-      <v-icon>mdi-arrow-up-circle</v-icon>
-      <v-icon>mdi-arrow-up-circle</v-icon>
-      <v-icon>mdi-arrow-left-circle</v-icon>
-      <v-icon>mdi-arrow-right-circle</v-icon>
-      <v-icon>mdi-arrow-down-circle</v-icon>
+      <v-img > </v-img>
     </h1>
     <p class="text-center text-white">You can go to the next ways</p>
 
@@ -25,3 +21,7 @@
   </v-container>
 </template>
 
+
+<script>
+
+</script>
