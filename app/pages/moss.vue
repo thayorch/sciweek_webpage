@@ -18,7 +18,7 @@
     :overlay="false"
     max-width="500px"
     transition="dialog-transition"
-    class="animate__animated animate__fadeIn animate__shakeY mx-auto"
+     class="animate__animated animate__fadeIn animate__shakeY mx-auto"
   >
     <Incorrect :quizIndex="quizIndex" />
   </v-dialog>
@@ -41,7 +41,7 @@
       <div class="option ma-8">
         <v-row>
           <v-col
-            v-for="(data, index) in optionData[quizIndex]"
+            v-for="(data, index) in optionData"
             :key="index"
             cols="6"
             class="pa-2"
@@ -51,7 +51,7 @@
               width="100%"
               height="55"
               :title="data.title"
-              @click="checkAnswer(data.title)"
+              @click="checkAnswer(data.id)"
             ></v-card>
           </v-col>
         </v-row>
@@ -63,40 +63,11 @@
 <script setup lang="ts">
 const router = useRouter();
 const optionData = ref([
-  [ 
-  { title: "Conan"},
-  { title: "Luffy"},
-  { title: "Gojo"},
-  { title: "Goku"},
-],
-  [
-  { title: "CSCMU"},
-  { title: "DSCMU"},
-  { title: "SCICMU"},
-  { title: "HUCMU"},
-],
-  [
-  { title: "CSCMU"},
-  { title: "DSCMU"},
-  { title: "SCICMU"},
-  { title: "HUCMU"},
-],
-  [ 
-  { title: "Conan"},
-  { title: "Luffy"},
-  { title: "Gojo"},
-  { title: "Goku"},
-],
-  [
-  { title: ""},
-  { title: ""},
-  { title: ""},
-  { title: ""},
-],
-
-]
-
-);
+  { title: "Answer 1", id: 1 },
+  { title: "Answer 2", id: 2 },
+  { title: "Answer 3", id: 3 },
+  { title: "Answer 4", id: 4 },
+]);
 
 const imgSource = ref<string[]>([
   "quiz1/1.jpg",
@@ -109,9 +80,9 @@ const imgSource = ref<string[]>([
 const alertCorrect = ref(false);
 const alertIncorrect = ref(false);
 const quizIndex = ref(0);
-const answerList = ["Conan", "CSCMU", "DSCMU", "Luffy", ""];
+const answerList = [1, 4, 2, 4, 3];
 
-const checkAnswer = (answer: string) => {
+const checkAnswer = (answer: number) => {
   if (answer === answerList[quizIndex.value]) {
     alertCorrect.value = true;
     setTimeout(() => {

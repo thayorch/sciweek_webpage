@@ -1,19 +1,27 @@
 <template>
   <v-app>
     <v-main class="main-bg">
-      <!-- <AppHeader/> -->
-      <v-btn
-        variant="plain"
-        class="text-white text-center"
-        size="large"
-        density="compact"
-        icon="mdi-arrow-left-bottom"
-        to="/"
-      ></v-btn>
+      <div class="bg-transparent d-flex justify-end px-4">
+  <!-- Button container aligned to the right -->
+  <div class="d-flex gap-2">
+    <v-btn
+      variant="plain"
+      class="text-white"
+      size="large"
+      density="compact"
+      icon="mdi-arrow-left-bottom"
+      to="/"
+    />
+    <FullscreenBtn />
+  </div>
+</div>
+
+      
       <slot />
     </v-main>
   </v-app>
 </template>
+
 
 <style lang="scss">
 .main-bg {
