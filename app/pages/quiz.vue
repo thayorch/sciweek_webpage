@@ -113,16 +113,16 @@ const checkAnswer = (answer: string) => {
     alertCorrect.value = true;
     setTimeout(() => {
       alertCorrect.value = false;
-    }, 1000);
+    }, 2000);
   } else {
     alertIncorrect.value = true;
     setTimeout(() => {
       alertIncorrect.value = false;
-    }, 1000);
+    }, 2000);
   }
   setTimeout(() => {
     updateIndex();
-  }, 1200);
+  }, 2100);
 };
 
 const updateIndex = () => {

@@ -1,6 +1,6 @@
 <template>
   <v-container
-    class="animate__animated animate__fadeIn animate__shakeY mx-auto"
+    class="sub-title animate__animated animate__fadeIn animate__shakeY mx-auto"
   >
     <div class="mt-16 pa-16"></div>
     <h1 class="text-center text-white">! Thanks For Playing !</h1>

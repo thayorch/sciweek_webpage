@@ -2,7 +2,6 @@
   <v-app>
     <v-main class="main-bg">
       <Navbar/>
-
       <slot />
     </v-main>
   </v-app>
@@ -13,5 +12,6 @@
   background: url("~/assets/background.jpg");
   background-size: cover;
   background-position: center;
+  
 }
 </style>

@@ -32,13 +32,12 @@
 
       <v-btn
         @click="playSound"
-        color="white"
         icon="mdi-volume-high"
-        height="100"
-        width="100"
-        class="mt-5"
+        height="120"
+        width="120"
+        class="mt-5 playsound"
       >
-        <v-icon class="ma-2" size="x-large" style="cursor: pointer">
+        <v-icon class="ma-2" color="white" size="35" style="cursor: pointer">
           mdi-volume-high
         </v-icon>
       </v-btn>
@@ -53,8 +52,7 @@
           >
             <v-card
               class="mx-auto"
-              width="100%"
-              height="55"
+              size="large"
               :title="data.title"
               @click="checkAnswer(data.title)"
             ></v-card>
@@ -116,12 +114,12 @@ const checkAnswer = (answer: string) => {
     alertCorrect.value = true;
     setTimeout(() => {
       alertCorrect.value = false;
-    }, 1000);
+    }, 2000);
   } else {
     alertIncorrect.value = true;
     setTimeout(() => {
       alertIncorrect.value = false;
-    }, 1000);
+    }, 2000);
   }
 
   updateIndex();
@@ -160,5 +158,9 @@ const playSound = () => {
   height: 80vh;
   border-radius: 5px;
   background: #ffffff77;
+}
+.playsound{
+  background:#a88650;
+  border-radius: 52px;
 }
 </style>
