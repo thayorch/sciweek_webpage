@@ -15,7 +15,7 @@ const quizSource = [
 ]
 
 const mossSource = [
-  ". * *. .",
+  ". _ _ . .",
   "_ . _ . .",
   "_ _ . . .",
   ". . . . .",
@@ -42,7 +42,7 @@ const answerImage = computed(() => {
 
 const mossPattern = computed(() => {
   if (props.pages === "moss") {
-    return mossSource[props.quizIndex]
+    return mossSource[props.quizIndex-1]
   }
   return ""
 })
